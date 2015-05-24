@@ -25,7 +25,12 @@ import org.achartengine.model.XYMultipleSeriesDataset;
 import org.achartengine.model.XYSeries;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
-import com.example.lab1.BluetoothLowEnergy;
+
+import com.example.R;
+import com.example.beacon.BeaconParser;
+import com.example.beacon.BeaconScanner;
+import com.example.beacon.BeaconThread;
+import com.example.beacon.BluetoothLowEnergy;
 
 public class Lab1Activity extends Activity {
 	/* UI */
@@ -52,13 +57,13 @@ public class Lab1Activity extends Activity {
 	/* Handler*/
 	private Handler handler = null;
 	
-	private MyThread thread = null;
+	private BeaconThread thread = null;
 	
 	private double avgRssi = -59.0;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_lab1);
 		initListeners();
 		initHandler();
 		initChart();
@@ -85,7 +90,7 @@ public class Lab1Activity extends Activity {
 		if (filter){
 			bs.start();
 		} else {
-			thread = new MyThread() {
+			thread = new BeaconThread() {
 				@Override
 				public void run() {
 					while (running) {
