@@ -65,12 +65,7 @@
                 android:layout_centerHorizontal="true"
              	android:gravity="center_horizontal"
                 android:textSize="32sp"
-<<<<<<< HEAD
-                android:text="0"
-=======
-                android:text="3.2"
->>>>>>> c4a3f657d7ed244b3f15a8b4e5de28a32001413a
-                 />
+                android:text="0"/>
                 
         </LinearLayout>
     </LinearLayout>
