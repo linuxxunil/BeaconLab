@@ -65,7 +65,7 @@
                 android:layout_centerHorizontal="true"
              	android:gravity="center_horizontal"
                 android:textSize="32sp"
-                android:text="3.2"
+                android:text="0"
                  />
                 
         </LinearLayout>
