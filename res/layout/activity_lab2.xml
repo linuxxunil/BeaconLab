@@ -23,7 +23,7 @@
             android:orientation="horizontal" >
 
             <CheckBox
-                android:id="@+id/cBoxWinAvg"
+                android:id="@+id/cBoxAvg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"

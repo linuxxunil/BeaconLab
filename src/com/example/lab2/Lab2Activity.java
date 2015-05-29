@@ -29,6 +29,7 @@ public class Lab2Activity extends Activity {
     private BeaconScanner bs;
     private Handler handler;
     private BeaconThread thread;
+    private double avgRssi = -59.0;
 	
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +85,7 @@ public class Lab2Activity extends Activity {
     private void initListeners()
     {
         btnStart = (Button)findViewById(R.id.btnStart);
-        cBoxAvg = (CheckBox)findViewById(R.id.cBoxWinAvg);
+        cBoxAvg = (CheckBox)findViewById(R.id.cBoxAvg);
         tViwValue = (TextView)findViewById(R.id.tViwValue);
         btnStart.setOnClickListener(new Button.OnClickListener() {
 			@Override
@@ -117,7 +118,14 @@ public class Lab2Activity extends Activity {
         String uuid = BeaconParser.getUUID(scanRecord);
         int major = BeaconParser.getMajor(scanRecord);
         int minor = BeaconParser.getMinor(scanRecord);
-        double meter = BeaconBase.toMeter(rssi);
+        double meter = 0; 
+		if (cBoxAvg.isChecked()) {
+			avgRssi = (avgRssi + rssi) / 2 ;
+			meter = BeaconBase.toMeter(avgRssi);
+		} else {
+			meter = BeaconBase.toMeter(rssi);
+		}
+        
         DecimalFormat df = new DecimalFormat("#.##");
         tViwValue.setText(df.format(meter));
     }
