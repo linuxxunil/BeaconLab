@@ -34,10 +34,12 @@
         <activity
             android:name=".lab2.Lab2Activity"
             android:label="@string/app_name" >
+ 			
         </activity>
         <activity
             android:name=".lab3.Lab3Activity"
             android:label="@string/app_name" >
+
         </activity>
     </application>
 

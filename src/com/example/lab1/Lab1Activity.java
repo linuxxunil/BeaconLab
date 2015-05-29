@@ -155,6 +155,9 @@ public class Lab1Activity extends Activity {
 		String uuid = BeaconParser.getUUID(scanRecord);
 		int major = BeaconParser.getMajor(scanRecord);
 		int minor = BeaconParser.getMinor(scanRecord);
+			
+		//if ( !mac.equals("") )
+		//	return ;
 		
 		if (cBoxAvg.isChecked()) {
 			avgRssi = (avgRssi + rssi) / 2 ;

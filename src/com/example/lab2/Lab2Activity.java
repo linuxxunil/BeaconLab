@@ -119,12 +119,17 @@ public class Lab2Activity extends Activity {
         int major = BeaconParser.getMajor(scanRecord);
         int minor = BeaconParser.getMinor(scanRecord);
         double meter = 0; 
+		
+        //if ( !mac.equals("") )
+		//	return ;
+        
 		if (cBoxAvg.isChecked()) {
 			avgRssi = (avgRssi + rssi) / 2 ;
 			meter = BeaconBase.toMeter(avgRssi);
 		} else {
 			meter = BeaconBase.toMeter(rssi);
 		}
+		
         
         DecimalFormat df = new DecimalFormat("#.##");
         tViwValue.setText(df.format(meter));
